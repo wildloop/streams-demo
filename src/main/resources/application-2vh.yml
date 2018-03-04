@@ -1,0 +1,40 @@
+spring.rabbitmq:
+  username: demo
+  password: demo
+  virtualHost: demo
+  connection-name-prefix: @artifactId@
+
+# https://docs.spring.io/spring-cloud-stream/docs/current/reference/htmlsingle/#multiple-systems
+spring:
+  cloud:
+    stream:
+      bindings:
+        input:
+          binder: demoin
+          destination: in-demo-a-dest
+          group: in-demo-a-group
+        output:
+          binder: demoout
+          destination: out-demo-b-dest
+          group: out-demo-b-group
+      binders:
+        demoin:
+          type: rabbit
+          defaultCandidate: false
+          inheritEnvironment: false
+          environment:
+            spring:
+              rabbitmq:
+                username: demo
+                password: demo
+                virtualHost: demo-a
+        demoout:
+          type: rabbit
+          defaultCandidate: false
+          inheritEnvironment: false
+          environment:
+            spring:
+              rabbitmq:
+                username: demo
+                password: demo
+                virtualHost: demo-b

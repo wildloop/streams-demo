@@ -1,0 +1,14 @@
+spring.rabbitmq:
+  username: demo
+  password: demo
+  virtualHost: demo
+  connection-name-prefix: @artifactId@
+
+spring.cloud.stream:
+  bindings:
+    input:
+      destination: in-dest-demo
+      group: in-group-demo
+    output:
+      destination: out-dest-demo
+      group: out-group-demo

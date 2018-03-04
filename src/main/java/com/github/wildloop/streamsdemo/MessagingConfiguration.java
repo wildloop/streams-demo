@@ -13,6 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import static org.slf4j.LoggerFactory.getLogger;
 
 @Configuration
+//TODO: refactoring - https://github.com/spring-projects/spring-boot/pull/12339
 public class MessagingConfiguration {
 	private static final Logger log = getLogger(MessagingConfiguration.class);
 	private final UUID uuid = UUID.randomUUID();
